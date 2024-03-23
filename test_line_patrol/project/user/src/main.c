@@ -65,7 +65,7 @@ int main (void)
     seekfree_assistant_interface_init(SEEKFREE_ASSISTANT_WIRELESS_UART);
 	ips200_init(IPS200_TYPE_SPI);
     mt9v03x_init();
-	//seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_copy1[0], MT9V03X_W, MT9V03X_H);
+	seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_binaryzation[0], MT9V03X_W, MT9V03X_H);
 
 	system_delay_ms(1000);
 	
@@ -80,11 +80,13 @@ int main (void)
 		if (mt9v03x_finish_flag){
 			//Image_Copy(image_copy1);
 			Image_Binaryzation(200);
-			Sweep_Line();
+			Sweep_Line(image_binaryzation);
 			Draw_Lines();
-			wireless_uart_send_buffer(temp_data, 120);
+			//wireless_uart_send_buffer(temp_data, 120);
+			//seekfree_assistant_camera_send();
 			ips200_show_gray_image(0, 0, image_binaryzation[0], MT9V03X_W, MT9V03X_H, 240, 200, 0);
 			mt9v03x_finish_flag = 0;
+			
 		}
 
 		//ips200_show_int(0, 250, pid_output, 4);

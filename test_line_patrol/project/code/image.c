@@ -70,14 +70,14 @@ uint8 GetOSTU(uint8 tmp_image[MT9V03X_H][MT9V03X_W])
 //Image_Binaryzation(uint8 value)
 //value ==>	阈值
 //========================================//
-void Image_Binaryzation(uint8 value)//图像二值化
+void Image_Binaryzation(uint8 value)
 {
 	uint8 temp_value;	
 	for (uint8 i = 0; i < MT9V03X_H; i ++){
 		for (uint8 j = 0; j < MT9V03X_W; j ++){
 			temp_value = mt9v03x_image[i][j];
-			if (temp_value < value)		image_binaryzation[i][j] = 0;
-			else 						image_binaryzation[i][j] = 255;	
+			if (temp_value < value)		image_binaryzation[i][j] = 0;			//Black
+			else 						image_binaryzation[i][j] = 255;			//White
 		}
 	}
 }	
@@ -85,37 +85,61 @@ void Image_Binaryzation(uint8 value)//图像二值化
 //==================================================//
 //Sweep_Line 扫线函数
 //=================================================//
-void Sweep_Line(void)
-{
-	uint8 i, j;
-	if (image_binaryzation[MT9V03X_H - 1][MT9V03X_W / 2] == 0){
-		if (image_binaryzation[MT9V03X_H - 1][5] == 255)	midline[MT9V03X_H - 1] = 5;
-		else if (image_binaryzation[MT9V03X_H - 1][MT9V03X_W - 5] == 255)	midline[MT9V03X_H - 1] = MT9V03X_W - 5;
-		else 	midline[MT9V03X_H - 1] = MT9V03X_W / 2;
-	}
-	else midline[MT9V03X_H - 1] = MT9V03X_W / 2;
+//void Sweep_Line(void)
+//{
+//	uint8 i, j;
+//	if (image_binaryzation[MT9V03X_H - 1][MT9V03X_W / 2] == 0){
+//		if (image_binaryzation[MT9V03X_H - 1][5] == 255)	midline[MT9V03X_H - 1] = 5;
+//		else if (image_binaryzation[MT9V03X_H - 1][MT9V03X_W - 5] == 255)	midline[MT9V03X_H - 1] = MT9V03X_W - 5;
+//		else 	midline[MT9V03X_H - 1] = MT9V03X_W / 2;
+//	}
+//	else midline[MT9V03X_H - 1] = MT9V03X_W / 2;
 
-	for (i = MT9V03X_H - 1; i > 0; i--){
-		for (j = midline[i + 1]; j >= 0; j--){
-			if (image_binaryzation[i][j] == 0 || j == 0){
+//	for (i = MT9V03X_H - 1; i > 0; i--){
+//		for (j = midline[i]; j >= 0; j--){
+//			if (image_binaryzation[i][j] == 0 || j == 0){
+//				leftline[i] = j;
+//				break;
+//			}
+//		}
+//		for (j = midline[i]; j <= MT9V03X_W - 1; j++){
+//			if (image_binaryzation[i][j] == 0 || j == MT9V03X_W - 1){
+//				rightline[i] = j;
+//				break;
+//			}
+//		}
+//		midline[i] = (leftline[i] + rightline[i]) / 2;
+//		if (image_binaryzation[i - 1][midline[i]] == 0 || i == 0){
+//			for (j = i; j > 0; j--){
+//				midline[j] = midline[i];
+//				leftline[j] = leftline[i];
+//				rightline[j] = rightline[i];
+//			}
+//			break;
+//		}
+//	}
+//}
+void Sweep_Line(uint8 binaryzation_image[MT9V03X_H][MT9V03X_W])
+{
+	for (uint8 i = MT9V03X_H - 1; i > 0; i --) 		midline[i] = MT9V03X_W / 2;
+	for (uint8 i = MT9V03X_H - 1; i > 0; i --){
+		for (uint8 j = midline[i]; j >= 0; j--){
+			if (binaryzation_image[i][j] == 0 || j == 0){
 				leftline[i] = j;
 				break;
 			}
 		}
-		for (j = midline[i + 1]; j <= MT9V03X_W - 1; j++){
-			if (image_binaryzation[i][j] == 0 || j == MT9V03X_H){
+		for (uint8 j = midline[i]; j < MT9V03X_W; j ++){
+			if (binaryzation_image[i][j] == 0 || j == MT9V03X_W - 1){
 				rightline[i] = j;
 				break;
 			}
 		}
-		midline[i] = (leftline[i] + rightline[i]) / 2;
-		if (image_binaryzation[i - 1][midline[i]] == 0 || i == 0){
-			for (j = i; j > 0; j--){
-				midline[j] = midline[i];
-				leftline[j] = leftline[i];
-				rightline[j] = rightline[i];
-			}
-			break;
+		midline[i] = (leftline[i] + rightline[i]) / 2;		//根据边线重置中线的值、
+		if (binaryzation_image[i][midline[i]] == 0 || i == 0){
+			midline[i] = midline[i];
+			leftline[i] = leftline[i];
+			rightline[i] = rightline[i];
 		}
 	}
 }
