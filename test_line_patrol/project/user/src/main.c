@@ -51,7 +51,7 @@
 // 2.连接好模块和核心板后（尽量使用配套主板测试以避免供电不足的问题） 烧录本例程 按下复位后程序开始运行
 //
 
-
+uint8 value = 200;
 int main (void)
 {
     clock_init(SYSTEM_CLOCK_600M);                                              // 不可删除
@@ -60,13 +60,12 @@ int main (void)
 
 	Encoder_Init();
 	Motor_Init();
-	//pit_ms_init(PIT_CH0, 5);
+	pit_ms_init(PIT_CH0, 5);
 	wireless_uart_init();
     seekfree_assistant_interface_init(SEEKFREE_ASSISTANT_WIRELESS_UART);
 	ips200_init(IPS200_TYPE_SPI);
     mt9v03x_init();
 	seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_binaryzation[0], MT9V03X_W, MT9V03X_H);
-
 	system_delay_ms(1000);
 	
     // 此处编写用户代码 例如外设初始化代码等
@@ -79,12 +78,14 @@ int main (void)
             // 在发送前将图像备份再进行发送，这样可以避免图像出现撕裂的问题
 		if (mt9v03x_finish_flag){
 			//Image_Copy(image_copy1);
-			Image_Binaryzation(200);
+			value = GetOSTU(image_binaryzation);
+			Image_Binaryzation(180);
+			Image_Erosion(image_binaryzation);
 			Sweep_Line(image_binaryzation);
 			Draw_Lines();
 			//wireless_uart_send_buffer(temp_data, 120);
 			//seekfree_assistant_camera_send();
-			ips200_show_gray_image(0, 0, image_binaryzation[0], MT9V03X_W, MT9V03X_H, 240, 200, 0);
+			ips200_show_gray_image(0, 0, image_binaryzation[0], MT9V03X_W, MT9V03X_H, MT9V03X_W, MT9V03X_H, 0);
 			mt9v03x_finish_flag = 0;
 			
 		}

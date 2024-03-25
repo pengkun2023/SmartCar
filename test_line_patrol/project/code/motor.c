@@ -14,10 +14,10 @@
 #define PWM_FRONT_L		PWM1_MODULE0_CHA_D12
 
 int motor_rear_R, motor_rear_L, motor_front_L, motor_front_R;
-int speed_target_RL = 0;
-int speed_target_RR = 0;
-int speed_target_FL = 0;
-int speed_target_FR = 0;
+int speed_target_RL = 50;
+int speed_target_RR = 50;
+int speed_target_FL = 50;
+int speed_target_FR = 50;
 PID SpeedPid;
 Speed SpeedMode;
 
