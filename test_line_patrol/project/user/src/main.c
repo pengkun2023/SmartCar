@@ -51,7 +51,7 @@
 // 2.连接好模块和核心板后（尽量使用配套主板测试以避免供电不足的问题） 烧录本例程 按下复位后程序开始运行
 //
 
-uint8 value = 200;
+
 int main (void)
 {
     clock_init(SYSTEM_CLOCK_600M);                                              // 不可删除
@@ -65,6 +65,8 @@ int main (void)
     seekfree_assistant_interface_init(SEEKFREE_ASSISTANT_WIRELESS_UART);
 	ips200_init(IPS200_TYPE_SPI);
     mt9v03x_init();
+	
+	key_init(10);
 	seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_binaryzation[0], MT9V03X_W, MT9V03X_H);
 	system_delay_ms(1000);
 	
@@ -73,13 +75,12 @@ int main (void)
     while(1)
     {
         // 此处编写需要循环执行的代码
-     
-
+		key_scanner();
+		Display_Show();
             // 在发送前将图像备份再进行发送，这样可以避免图像出现撕裂的问题
 		if (mt9v03x_finish_flag){
-			//Image_Copy(image_copy1);
-			value = GetOSTU(image_binaryzation);
-			Image_Binaryzation(180);
+			//image_value = GetOSTU(image_binaryzation);
+			Image_Binaryzation(image_value);
 			Image_Erosion(image_binaryzation);
 			Sweep_Line(image_binaryzation);
 			Draw_Lines();

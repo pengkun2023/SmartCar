@@ -24,13 +24,14 @@ typedef struct
 	int integralRL_MIN, integralRR_MIN, integralFL_MIN, integralFR_MIN;
 
 }PID;
+
 typedef struct 
 {
 	bool stop;
 	int forward, back, left, right;
 }Speed;
 
-
+extern Speed SpeedMode;
 extern int pid_output;
 extern int speed_target_RL, speed_target_RR, speed_target_FL, speed_target_FR;
 

@@ -53,7 +53,7 @@ void PIT_IRQHandler(void)
         pit_flag_clear(PIT_CH0);
 		Encode_Get();
 		
-//		Motor_Control(true);
+//		Motor_Control(SpeedMode.stop);
 		seekfree_assistant_oscilloscope_struct oscilloscope_data;
 		// 设置为4个通道，通道数量最大为8个
 		oscilloscope_data.channel_num = 5;
@@ -65,8 +65,8 @@ void PIT_IRQHandler(void)
 		// 通过串口发送到虚拟示波器上
         seekfree_assistant_oscilloscope_send(&oscilloscope_data);
 		
-
-		Motor_Control(0);
+		Key_Set();
+		Motor_Control(SpeedMode.stop);
 //		Motor_Cart(1000, 1000, 1000, 1000);
 		
     }

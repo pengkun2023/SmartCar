@@ -459,6 +459,26 @@
               <FileType>5</FileType>
               <FilePath>..\code\image.h</FilePath>
             </File>
+            <File>
+              <FileName>botton.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\code\botton.c</FilePath>
+            </File>
+            <File>
+              <FileName>botton.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\code\botton.h</FilePath>
+            </File>
+            <File>
+              <FileName>display.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\code\display.c</FilePath>
+            </File>
+            <File>
+              <FileName>display.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\code\display.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

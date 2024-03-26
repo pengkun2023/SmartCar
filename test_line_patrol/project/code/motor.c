@@ -35,7 +35,7 @@ void CarPwm_Init(void)
 }
 void SpeedParameter_Init(void)	//速度参数初始化
 {
-	SpeedMode.stop = true;
+	SpeedMode.stop = false;
 	SpeedMode.forward = 0;
 }
 

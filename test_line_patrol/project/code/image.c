@@ -4,6 +4,8 @@ uint8 midline[MT9V03X_H], leftline[MT9V03X_H], rightline[MT9V03X_H], temp_data[M
 uint8 image_copy[MT9V03X_H][MT9V03X_W];
 uint8 threshold;
 
+uint8 image_value = 200;	//阈值
+
 //================复制图像=================//
 //void Image_Copy(uint8 image_copy[MT9V03X_H][MT9V03X_W])
 //========================================//
@@ -222,7 +224,7 @@ void Sweep_Line(uint8 binaryzation_image[MT9V03X_H][MT9V03X_W])
 		leftline[i] = left_point;
 		rightline[i] = right_point;
 		midline[i] = (left_point + right_point) / 2;
-		ips200_show_float(0, 200, midline[i], 3, 2);
+//		ips200_show_float(0, 200, midline[i], 3, 2);
 	}
 }
 
@@ -235,9 +237,11 @@ void Sweep_Line(uint8 binaryzation_image[MT9V03X_H][MT9V03X_W])
 //=================================//
 void Draw_Dots(uint8 x, uint8 y, uint16 color)
 {
-	if ((x != MT9V03X_W - 1) &&(x != 0) ){
+	if ((x != MT9V03X_W - 1) &&(x != 0) && (x != 1) && (x != MT9V03X_W - 2)){
 		if ((y != 0) && (y != MT9V03X_H - 1)){
 			ips200_draw_point(x, y, color);
+			ips200_draw_point(x - 2, y, color);
+			ips200_draw_point(x + 2, y, color);
 			ips200_draw_point(x - 1, y, color);
 			ips200_draw_point(x + 1, y, color);
 		}

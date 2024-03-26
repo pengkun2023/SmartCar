@@ -8,6 +8,10 @@
 
 extern uint8 image_copy[MT9V03X_H][MT9V03X_W];
 extern uint8 image_binaryzation[MT9V03X_H][MT9V03X_W], temp_data[MT9V03X_H];
+extern uint8 image_value;
+
+
+
 void Image_Copy(uint8 image_copy[MT9V03X_H][MT9V03X_W]);
 //uint8 GetOSTU(uint8 tmImage[MT9V03X_H][MT9V03X_W]);
 void Image_Binaryzation(uint8 value);//Í¼Ïñ¶þÖµ»¯

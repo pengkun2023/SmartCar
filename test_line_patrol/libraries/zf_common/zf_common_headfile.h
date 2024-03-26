@@ -126,6 +126,8 @@
 #include "motor.h"
 #include "my_pwm.h"
 #include "image.h"
+#include "display.h"
+#include "botton.h"
 //===================================================用户自定义文件===================================================
 
 #endif
