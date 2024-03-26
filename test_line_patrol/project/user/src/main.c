@@ -83,6 +83,7 @@ int main (void)
 			Image_Binaryzation(image_value);
 			Image_Erosion(image_binaryzation);
 			Sweep_Line(image_binaryzation);
+			FineMidLine_Weight();
 			Draw_Lines();
 			//wireless_uart_send_buffer(temp_data, 120);
 			//seekfree_assistant_camera_send();

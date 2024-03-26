@@ -15,6 +15,7 @@ void Display_Show(void)
 		case show_image_value:
 			ips200_show_string(0, 270, "show image value");
 			ips200_show_int(0, 150, image_value, 3);
+			ips200_show_int(0, 200, midLine_value, 3);
 			break;
 		case show_car_speed:
 			ips200_show_string(0, 270, "show car speed");

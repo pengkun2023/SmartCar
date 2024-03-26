@@ -66,6 +66,7 @@ void PIT_IRQHandler(void)
         seekfree_assistant_oscilloscope_send(&oscilloscope_data);
 		
 		Key_Set();
+		Deviation_Deal();
 		Motor_Control(SpeedMode.stop);
 //		Motor_Cart(1000, 1000, 1000, 1000);
 		

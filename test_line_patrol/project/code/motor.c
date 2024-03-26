@@ -51,12 +51,8 @@ float Limit_Pwm(float pwm_value)
 //--------取绝对值函数-------//
 int Abs_value(int value)
 {
-	if (value >= 0){
-		return value;
-	}
-	else {
-		return -value;
-	}
+	if (value >= 0)	return value;
+	else 			return -value;
 }
 
 //-------------------------------------------//

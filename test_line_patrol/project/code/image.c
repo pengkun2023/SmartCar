@@ -3,8 +3,27 @@ uint8 image_binaryzation[MT9V03X_H][MT9V03X_W];
 uint8 midline[MT9V03X_H], leftline[MT9V03X_H], rightline[MT9V03X_H], temp_data[MT9V03X_H];
 uint8 image_copy[MT9V03X_H][MT9V03X_W];
 uint8 threshold;
+uint8 midLine_value;
 
-uint8 image_value = 200;	//阈值
+uint8 image_value = 180;	//阈值
+
+
+uint8 mid_weight_list[120] = 
+{
+	1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+	2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+	6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+	9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
+	10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+	9, 9, 9, 9, 9, 9, 9, 9, 9, 9,
+	8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+	6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+	4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+	3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+	2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+	1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+};
+
 
 //================复制图像=================//
 //void Image_Copy(uint8 image_copy[MT9V03X_H][MT9V03X_W])
@@ -165,9 +184,7 @@ void Image_Erosion(uint8 image[MT9V03X_H][MT9V03X_W])
 //==================================================//
 //Sweep_Line 扫线函数
 //=================================================//
-/*
 
-*/
 void Sweep_Line(uint8 binaryzation_image[MT9V03X_H][MT9V03X_W])
 {
 	uint8 left_point = 1;
@@ -262,17 +279,71 @@ void Draw_Lines(void)
 		Draw_Dots(midline[i], i, RGB565_RED);
 	}
 }
-//void Draw_Lines(void)
-//{
-//	for (uint8 i = MT9V03X_H - 1; i > 0; i ++){
-//		ips200_draw_point(rightline[i], i, RGB565_BLUE);
-//		ips200_draw_point(leftline[i], i, RGB565_GREEN);
-//		ips200_draw_point(midline[i], i, RGB565_RED);
-//	}
-//}
 
-/***************************************************
-//图像处理 void Image_Deal(void)
+/*******************权重计算中线*************************
+// void FineMidLine_Weight(void)
+****************************************************/
+void FineMidLine_Weight(void)
+{
+	uint16 weight_sum = 0;
+	int mid_deviation = 0;	//偏差值
+	uint8 last_line_flag = 0;
+	uint16 weight_mid_sum = 0;
+	
+	for (uint8 i = MT9V03X_H - 1; i > 0; i --){
+		if (i == MT9V03X_H - 1){
+			weight_mid_sum += midline[i] * mid_weight_list[i];		//分子 ==> 中线值 * 中线权重值
+			weight_sum += mid_weight_list[i];	//所有的权重之和
+		}
+		else {
+			mid_deviation = Abs_value((int)(midline[i] - midline[i + 1]));
+			if (last_line_flag == 1) 		continue;
+			else  if (mid_deviation > 34 && last_line_flag == 0){
+				last_line_flag = 1;
+				continue;
+			}
+			else {
+				weight_mid_sum += midline[i] * mid_weight_list[i];
+				weight_sum += mid_weight_list[i];
+			}
+		}
+	}
+	
+	midLine_value = (uint8)(weight_mid_sum / weight_sum);
+}
+
+/*******************偏差值处理*************************
+// void Deviation_Deal()
+****************************************************/
+
+void Deviation_Deal(void)
+{
+	uint8 mid_point = MT9V03X_W / 2;
+	int deviation = mid_point - midLine_value;
+	if (deviation > 0){
+		speed_target_FR = 50 + deviation;
+		speed_target_RR = speed_target_FR;
+		speed_target_FL = Abs_value(50 - deviation);
+		speed_target_RL = Abs_value(speed_target_FL);
+	}
+	else if (deviation < 0){
+		speed_target_FL = 50 - deviation;
+		speed_target_RL = speed_target_FL;
+		speed_target_FR = Abs_value(50 + deviation);
+		speed_target_RR = Abs_value(speed_target_FR);
+	}
+	else{
+		speed_target_FL = 50;
+		speed_target_RL = speed_target_FL;
+		speed_target_FR = speed_target_FL;
+		speed_target_RR = speed_target_FL;
+	}
+	
+}
+
+
+/*******************图像处理*************************
+// void Image_Deal(void)
 ****************************************************/
 
 void Image_Deal(void)
@@ -283,3 +354,8 @@ void Image_Deal(void)
 	Sweep_Line(image_binaryzation);
 	Draw_Lines();
 }
+
+
+
+
+
