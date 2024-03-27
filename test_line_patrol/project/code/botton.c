@@ -20,6 +20,12 @@ void Jump_Nxet(void)
 *******************************************************/
 void Key_Set(void)
 {
+	
+	speed_target_RL = speed_begin;
+	speed_target_FL = speed_begin;
+	speed_target_RR = speed_begin;
+	speed_target_FR	= speed_begin;
+	
 	if (KEY_SHORT_PRESS == key_get_state(KEY_1)){
 		switch (DisplayShow)
 		{
@@ -27,7 +33,7 @@ void Key_Set(void)
 				image_value += 5;
 				break;
 			case show_car_speed:
-				
+				speed_begin += 1;
 				break;
 			case show_car_run_OR_stop:
 				
@@ -46,7 +52,7 @@ void Key_Set(void)
 				image_value -= 5;
 				break;
 			case show_car_speed:
-				
+				speed_begin -= 1;
 				break;
 			case show_car_run_OR_stop:
 				SpeedMode.stop = true;

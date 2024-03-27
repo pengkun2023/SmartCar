@@ -34,7 +34,7 @@ typedef struct
 extern Speed SpeedMode;
 extern int pid_output;
 extern int speed_target_RL, speed_target_RR, speed_target_FL, speed_target_FR;
-
+extern int speed_begin;
 void Motor_Init(void);
 void Motor_Control(bool run);
 void Car_Straight(int speed);

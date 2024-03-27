@@ -322,19 +322,19 @@ void Deviation_Deal(void)
 	uint8 mid_point = MT9V03X_W / 2;
 	int deviation = mid_point - midLine_value;
 	if (deviation > 0){
-		speed_target_FR = 50 + deviation;
+		speed_target_FR = speed_begin + deviation;
 		speed_target_RR = speed_target_FR;
 		
-		speed_target_FL = Abs_value(50 - deviation);
+		speed_target_FL = Abs_value(speed_begin - deviation);
 		speed_target_RL = Abs_value(speed_target_FL);
 	}
 	else if (deviation < 0){
-		speed_target_FL = 50 - deviation;
+		speed_target_FL = speed_begin - deviation;
 		speed_target_RL = speed_target_FL;
-		speed_target_FR = Abs_value(50 + deviation);
+		speed_target_FR = Abs_value(speed_begin + deviation);
 		speed_target_RR = Abs_value(speed_target_FR);
 	}
-	else		Car_Straight(50);
+	else		Car_Straight(speed_begin);
 	
 }
 

@@ -19,6 +19,8 @@ void Display_Show(void)
 			break;
 		case show_car_speed:
 			ips200_show_string(0, 270, "show car speed");
+			ips200_show_int(0, 150, image_value, 3);
+			ips200_show_int(0, 200, speed_begin, 3);
 			break;
 		case show_car_run_OR_stop:
 			ips200_show_string(0, 270, "show run_OR_stop");

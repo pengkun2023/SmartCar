@@ -5,7 +5,7 @@
 #include "zf_device_ips200.h"
 #include "image.h"
 #include "display.h"
-
+#include "motor.h"
 
 typedef enum BOTTON_ENUM
 {
