@@ -1,3 +1,4 @@
+
 #include "image.h"
 uint8 image_binaryzation[MT9V03X_H][MT9V03X_W];
 uint8 midline[MT9V03X_H], leftline[MT9V03X_H], rightline[MT9V03X_H], temp_data[MT9V03X_H];
@@ -321,26 +322,35 @@ void Deviation_Deal(void)
 	uint8 mid_point = MT9V03X_W / 2;
 	int deviation = mid_point - midLine_value;
 	if (deviation > 0){
-		speed_target_FR = 50 + deviation;
+		speed_target_FR = 50 + deviation * 3 / 2;
 		speed_target_RR = speed_target_FR;
 		
 		speed_target_FL = Abs_value(50 - deviation);
 		speed_target_RL = Abs_value(speed_target_FL);
 	}
 	else if (deviation < 0){
-		speed_target_FL = 50 - deviation;
+		speed_target_FL = 50 - deviation * 3 / 2;
 		speed_target_RL = speed_target_FL;
 		speed_target_FR = Abs_value(50 + deviation);
 		speed_target_RR = Abs_value(speed_target_FR);
 	}
-	else{
-		speed_target_FL = 50;
-		speed_target_RL = speed_target_FL;
-		speed_target_FR = speed_target_FL;
-		speed_target_RR = speed_target_FL;
-	}
+	else		Car_Straight(50);
 	
 }
+
+/***************************************************
+//void Protect(void)
+//当车冲出赛道的时候，停车
+***************************************************/
+void Protect(void)
+{
+	uint8 black_count = 0;
+	for (uint8 i = MT9V03X_W - 1; i > 0; i --){
+		if (image_binaryzation[MT9V03X_H - 1][i] == RGB565_BLACK)	black_count ++;
+	}
+	if (black_count >= 170)		Car_Straight(0);
+}
+
 
 
 /*******************图像处理*************************
@@ -349,10 +359,11 @@ void Deviation_Deal(void)
 
 void Image_Deal(void)
 {	
-	threshold = GetOSTU(image_binaryzation);
-	Image_Binaryzation(threshold);
+	//threshold = GetOSTU(image_binaryzation);
+	Image_Binaryzation(image_value);
 	Image_Erosion(image_binaryzation);
 	Sweep_Line(image_binaryzation);
+	FineMidLine_Weight();
 	Draw_Lines();
 }
 

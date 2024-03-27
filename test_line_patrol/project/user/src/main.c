@@ -80,11 +80,7 @@ int main (void)
             // 在发送前将图像备份再进行发送，这样可以避免图像出现撕裂的问题
 		if (mt9v03x_finish_flag){
 			//image_value = GetOSTU(image_binaryzation);
-			Image_Binaryzation(150);
-			Image_Erosion(image_binaryzation);
-			Sweep_Line(image_binaryzation);
-			FineMidLine_Weight();
-			Draw_Lines();
+			Image_Deal();
 			//wireless_uart_send_buffer(temp_data, 120);
 			//seekfree_assistant_camera_send();
 			ips200_show_gray_image(0, 0, image_binaryzation[0], MT9V03X_W, MT9V03X_H, MT9V03X_W, MT9V03X_H, 0);

@@ -37,6 +37,7 @@ extern int speed_target_RL, speed_target_RR, speed_target_FL, speed_target_FR;
 
 void Motor_Init(void);
 void Motor_Control(bool run);
+void Car_Straight(int speed);
 int Abs_value(int value);
 
 #endif

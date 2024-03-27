@@ -67,6 +67,7 @@ void PIT_IRQHandler(void)
 		
 		Key_Set();
 		Deviation_Deal();
+		Protect();
 		Motor_Control(SpeedMode.stop);
 //		Motor_Cart(1000, 1000, 1000, 1000);
 		

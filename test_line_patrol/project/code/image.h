@@ -22,7 +22,7 @@ void Sweep_Line(uint8 binaryzation_image[MT9V03X_H][MT9V03X_W]);
 void Draw_Lines(void);
 void FineMidLine_Weight(void);
 void Deviation_Deal(void);
-
+void Protect(void);
 
 void Image_Deal(void);
 #endif

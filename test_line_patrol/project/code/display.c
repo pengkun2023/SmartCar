@@ -8,7 +8,7 @@ bool clear_flag;
 void Display_Show(void)
 {
 	if (clear_flag){
-		ips200_clear();
+		//ips200_clear();
 	}
 	switch (DisplayShow)
 	{

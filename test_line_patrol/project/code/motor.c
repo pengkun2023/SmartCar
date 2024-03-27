@@ -78,9 +78,21 @@ void Speed_Mode(Speed *SpeedMode)
 		}
 	}
 }
+//-------------------------------------------//
+//名称：		void Car_Straight(int speed)
+//参数：		int speed    直行速度
+//作用：		前进
+//-------------------------------------------//
 
-//----------速度环----------/
+void Car_Straight(int speed)
+{
+		speed_target_FL = speed;
+		speed_target_RR = speed;
+		speed_target_RL = speed;
+		speed_target_FR = speed;
+}
 
+//-----------------------------------------------速度环-------------------------------------------/
 
 
 void PID_Init(void)

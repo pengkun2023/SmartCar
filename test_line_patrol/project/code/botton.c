@@ -49,7 +49,7 @@ void Key_Set(void)
 				
 				break;
 			case show_car_run_OR_stop:
-				
+				SpeedMode.stop = true;
 				break;
 			default:
 				
@@ -68,7 +68,7 @@ void Key_Set(void)
 				
 				break;
 			case show_car_run_OR_stop:
-				SpeedMode.stop = ~SpeedMode.stop;
+				SpeedMode.stop = false;
 				break;
 			default:
 				
