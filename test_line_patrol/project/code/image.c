@@ -323,6 +323,7 @@ void Deviation_Deal(void)
 	if (deviation > 0){
 		speed_target_FR = 50 + deviation;
 		speed_target_RR = speed_target_FR;
+		
 		speed_target_FL = Abs_value(50 - deviation);
 		speed_target_RL = Abs_value(speed_target_FL);
 	}

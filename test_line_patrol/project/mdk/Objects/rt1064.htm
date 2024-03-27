@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\rt1064.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\rt1064.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Tue Mar 26 19:38:38 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Tue Mar 26 22:41:09 2024
 <BR><P>
 <H3>Maximum Stack Usage =       1440 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -3233,7 +3233,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ac]"></a>main</STRONG> (Thumb, 236 bytes, Stack size 40 bytes, main.o(.text.main))
+<P><STRONG><a name="[ac]"></a>main</STRONG> (Thumb, 228 bytes, Stack size 40 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 1440<LI>Call Chain = main &rArr; Display_Show &rArr; ips200_show_int &rArr; ips200_show_string &rArr; ips200_show_char &rArr; ips200_set_region &rArr; ips200_write_command &rArr; spi_write_8bit &rArr; spi_write_8bit_array &rArr; spi_write &rArr; LPSPI_MasterTransferBlocking &rArr; LPSPI_CheckTransferArgument &rArr; __aeabi_assert &rArr; DbgConsole_Printf &rArr; DbgConsole_Vprintf &rArr; DbgConsole_PrintfFormattedData &rArr; DbgConsole_ConvertFloatRadixNumToString &rArr; __hardfp_pow &rArr; sqrt
 </UL>
 <BR>[Calls]<UL><LI><a href="#[240]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips200_show_gray_image

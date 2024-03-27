@@ -80,7 +80,7 @@ int main (void)
             // 在发送前将图像备份再进行发送，这样可以避免图像出现撕裂的问题
 		if (mt9v03x_finish_flag){
 			//image_value = GetOSTU(image_binaryzation);
-			Image_Binaryzation(image_value);
+			Image_Binaryzation(150);
 			Image_Erosion(image_binaryzation);
 			Sweep_Line(image_binaryzation);
 			FineMidLine_Weight();
