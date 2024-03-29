@@ -68,7 +68,7 @@ void Key_Set(void)
 		switch (DisplayShow)
 		{
 			case show_image_value:
-	
+
 				break;
 			case show_car_speed:
 				
