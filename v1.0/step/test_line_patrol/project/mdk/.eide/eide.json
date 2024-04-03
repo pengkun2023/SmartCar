@@ -1,0 +1,1272 @@
+{
+  "name": "rt1064",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    ".eide/deps"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "code",
+        "files": [
+          {
+            "path": "../code/encoder.c"
+          },
+          {
+            "path": "../code/encoder.h"
+          },
+          {
+            "path": "../code/image.c"
+          },
+          {
+            "path": "../code/image.h"
+          },
+          {
+            "path": "../code/motor.c"
+          },
+          {
+            "path": "../code/motor.h"
+          },
+          {
+            "path": "../code/my_pwm.c"
+          },
+          {
+            "path": "../code/my_pwm.h"
+          },
+          {
+            "path": "../code/pit_timer.c"
+          },
+          {
+            "path": "../code/pit_timer.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "components_fatfs",
+        "files": [
+          {
+            "path": "../../libraries/components/fatfs/source/diskio.c"
+          },
+          {
+            "path": "../../libraries/components/fatfs/source/diskio.h"
+          },
+          {
+            "path": "../../libraries/components/fatfs/source/ff.c"
+          },
+          {
+            "path": "../../libraries/components/fatfs/source/ff.h"
+          },
+          {
+            "path": "../../libraries/components/fatfs/source/ffconf.h"
+          },
+          {
+            "path": "../../libraries/components/fatfs/source/ffsystem.c"
+          },
+          {
+            "path": "../../libraries/components/fatfs/source/ffunicode.c"
+          },
+          {
+            "path": "../../libraries/components/fatfs/source/fsl_sd_disk/fsl_sd_disk.c"
+          },
+          {
+            "path": "../../libraries/components/fatfs/source/fsl_sd_disk/fsl_sd_disk.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "components_sdmmc",
+        "files": [
+          {
+            "path": "../../libraries/components/sdmmc/sdmmc_config.c"
+          },
+          {
+            "path": "../../libraries/components/sdmmc/sdmmc_config.h"
+          },
+          {
+            "path": "../../libraries/components/sdmmc/common/fsl_sdmmc_common.c"
+          },
+          {
+            "path": "../../libraries/components/sdmmc/common/fsl_sdmmc_common.h"
+          },
+          {
+            "path": "../../libraries/components/sdmmc/common/fsl_sdmmc_spec.h"
+          },
+          {
+            "path": "../../libraries/components/sdmmc/host/usdhc/fsl_sdmmc_host.h"
+          },
+          {
+            "path": "../../libraries/components/sdmmc/host/usdhc/non_blocking/fsl_sdmmc_host.c"
+          },
+          {
+            "path": "../../libraries/components/sdmmc/osa/fsl_sdmmc_osa.c"
+          },
+          {
+            "path": "../../libraries/components/sdmmc/osa/fsl_sdmmc_osa.h"
+          },
+          {
+            "path": "../../libraries/components/sdmmc/sd/fsl_sd.c"
+          },
+          {
+            "path": "../../libraries/components/sdmmc/sd/fsl_sd.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "components_usb",
+        "files": [
+          {
+            "path": "../../libraries/components/usb/device/usb_device_ehci.c"
+          },
+          {
+            "path": "../../libraries/components/usb/device/usb_device_ehci.h"
+          },
+          {
+            "path": "../../libraries/components/usb/include/usb.h"
+          },
+          {
+            "path": "../../libraries/components/usb/include/usb_misc.h"
+          },
+          {
+            "path": "../../libraries/components/usb/include/usb_spec.h"
+          },
+          {
+            "path": "../../libraries/components/usb/phy/usb_phy.c"
+          },
+          {
+            "path": "../../libraries/components/usb/phy/usb_phy.h"
+          },
+          {
+            "path": "../../libraries/components/usb/device/usb_device_dci.c"
+          },
+          {
+            "path": "../../libraries/components/usb/device/usb_device_dci.h"
+          },
+          {
+            "path": "../../libraries/components/usb/device/usb_device.h"
+          },
+          {
+            "path": "../../libraries/components/usb/usb_cdc_adapter/usb_device_cdc_acm.c"
+          },
+          {
+            "path": "../../libraries/components/usb/usb_cdc_adapter/usb_device_cdc_acm.h"
+          },
+          {
+            "path": "../../libraries/components/usb/usb_cdc_adapter/usb_device_ch9.c"
+          },
+          {
+            "path": "../../libraries/components/usb/usb_cdc_adapter/usb_device_ch9.h"
+          },
+          {
+            "path": "../../libraries/components/usb/usb_cdc_adapter/usb_device_class.c"
+          },
+          {
+            "path": "../../libraries/components/usb/usb_cdc_adapter/usb_device_class.h"
+          },
+          {
+            "path": "../../libraries/components/usb/usb_cdc_adapter/usb_device_config.h"
+          },
+          {
+            "path": "../../libraries/components/usb/usb_cdc_adapter/usb_device_descriptor.c"
+          },
+          {
+            "path": "../../libraries/components/usb/usb_cdc_adapter/usb_device_descriptor.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "doc",
+        "files": [],
+        "folders": []
+      },
+      {
+        "name": "sdk_device",
+        "files": [
+          {
+            "path": "../../libraries/sdk/board/board.c"
+          },
+          {
+            "path": "../../libraries/sdk/board/board.h"
+          },
+          {
+            "path": "../../libraries/sdk/board/clock_config.c"
+          },
+          {
+            "path": "../../libraries/sdk/board/clock_config.h"
+          },
+          {
+            "path": "../../libraries/sdk/xip/fsl_flexspi_nor_boot.h"
+          },
+          {
+            "path": "../../libraries/sdk/xip/fsl_flexspi_nor_boot.c"
+          },
+          {
+            "path": "../../libraries/sdk/xip/evkmimxrt1064_sdram_ini_dcd.h"
+          },
+          {
+            "path": "../../libraries/sdk/xip/evkmimxrt1064_sdram_ini_dcd.c"
+          },
+          {
+            "path": "../../libraries/sdk/xip/evkmimxrt1064_flexspi_nor_config.h"
+          },
+          {
+            "path": "../../libraries/sdk/xip/evkmimxrt1064_flexspi_nor_config.c"
+          },
+          {
+            "path": "../../libraries/sdk/deceive/system_MIMXRT1064.h"
+          },
+          {
+            "path": "../../libraries/sdk/deceive/system_MIMXRT1064.c"
+          },
+          {
+            "path": "../../libraries/sdk/deceive/MIMXRT1064_features.h"
+          },
+          {
+            "path": "../../libraries/sdk/deceive/MIMXRT1064.h"
+          },
+          {
+            "path": "../../libraries/sdk/startup/mdk/startup_MIMXRT1064.S"
+          },
+          {
+            "path": "../../libraries/sdk/deceive/fsl_device_registers.h"
+          },
+          {
+            "path": "../../libraries/sdk/utilities/fsl_assert.c"
+          },
+          {
+            "path": "../../libraries/sdk/components/osa/fsl_os_abstraction.h"
+          },
+          {
+            "path": "../../libraries/sdk/components/osa/fsl_os_abstraction_bm.c"
+          },
+          {
+            "path": "../../libraries/sdk/components/osa/fsl_os_abstraction_bm.h"
+          },
+          {
+            "path": "../../libraries/sdk/components/osa/fsl_os_abstraction_config.h"
+          },
+          {
+            "path": "../../libraries/sdk/components/lists/fsl_component_generic_list.c"
+          },
+          {
+            "path": "../../libraries/sdk/components/uart/fsl_adapter_lpuart.c"
+          },
+          {
+            "path": "../../libraries/sdk/components/uart/fsl_adapter_uart.h"
+          },
+          {
+            "path": "../../libraries/sdk/utilities/debug_console/fsl_debug_console.c"
+          },
+          {
+            "path": "../../libraries/sdk/utilities/debug_console/fsl_debug_console.h"
+          },
+          {
+            "path": "../../libraries/sdk/utilities/debug_console/fsl_debug_console_conf.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "sdk_drivers",
+        "files": [
+          {
+            "path": "../../libraries/sdk/drives/fsl_adc.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_adc.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_adc_etc.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_adc_etc.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_aipstz.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_aipstz.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_aoi.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_aoi.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_bee.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_bee.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_cache.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_cache.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_clock.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_clock.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_cmp.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_cmp.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_common.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_common.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_common_arm.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_common_arm.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_csi.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_csi.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_dcdc.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_dcdc.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_dcp.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_dcp.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_dmamux.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_dmamux.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_elcdif.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_elcdif.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_enc.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_enc.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_enet.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_enet.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_ewm.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_ewm.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexcan.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexcan.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexcan_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexcan_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_camera.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_camera.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_camera_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_camera_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_i2c_master.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_i2c_master.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_i2s.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_i2s.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_i2s_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_i2s_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_mculcd.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_mculcd.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_mculcd_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_mculcd_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_spi.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_spi.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_spi_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_spi_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_uart.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_uart.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_uart_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexio_uart_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexram.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexram.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexram_allocate.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexram_allocate.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexspi.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_flexspi.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_gpc.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_gpc.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_gpio.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_gpio.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_gpt.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_gpt.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_iomuxc.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_kpp.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_kpp.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpi2c.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpi2c.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpi2c_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpi2c_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpspi.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpspi.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpspi_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpspi_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpuart.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpuart.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpuart_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_lpuart_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_ocotp.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_ocotp.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_pit.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_pit.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_pmu.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_pmu.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_pwm.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_pwm.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_pxp.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_pxp.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_qtmr.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_qtmr.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_rtwdog.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_rtwdog.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_sai.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_sai.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_sai_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_sai_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_semc.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_semc.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_snvs_hp.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_snvs_hp.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_snvs_lp.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_snvs_lp.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_spdif.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_spdif.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_spdif_edma.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_spdif_edma.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_src.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_src.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_tempmon.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_tempmon.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_trng.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_trng.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_tsc.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_tsc.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_usdhc.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_usdhc.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_wdog.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_wdog.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_xbara.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_xbara.h"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_xbarb.c"
+          },
+          {
+            "path": "../../libraries/sdk/drives/fsl_xbarb.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "user_c",
+        "files": [
+          {
+            "path": "../user/src/isr.c"
+          },
+          {
+            "path": "../user/src/main.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "user_h",
+        "files": [
+          {
+            "path": "../user/inc/isr.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "zf_common",
+        "files": [
+          {
+            "path": "../../libraries/zf_common/zf_common_clock.c"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_clock.h"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_debug.c"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_debug.h"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_fifo.c"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_fifo.h"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_font.c"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_font.h"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_function.c"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_function.h"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_headfile.h"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_interrupt.c"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_interrupt.h"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_typedef.h"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_vector.c"
+          },
+          {
+            "path": "../../libraries/zf_common/zf_common_vector.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "zf_components",
+        "files": [
+          {
+            "path": "../../libraries/zf_components/seekfree_assistant.c"
+          },
+          {
+            "path": "../../libraries/zf_components/seekfree_assistant.h"
+          },
+          {
+            "path": "../../libraries/zf_components/seekfree_assistant_interface.c"
+          },
+          {
+            "path": "../../libraries/zf_components/seekfree_assistant_interface.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "zf_device",
+        "files": [
+          {
+            "path": "../../libraries/zf_device/zf_device_absolute_encoder.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_absolute_encoder.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_bluetooth_ch9141.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_bluetooth_ch9141.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_camera.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_camera.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_gps_tau1201.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_gps_tau1201.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_icm20602.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_icm20602.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_imu963ra.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_imu963ra.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_imu660ra.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_imu660ra.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_ips114.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_ips114.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_ips200.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_ips200.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_key.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_key.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_mpu6050.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_mpu6050.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_mt9v03x.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_mt9v03x.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_mt9v03x_flexio.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_mt9v03x_flexio.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_oled.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_oled.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_ov7725.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_ov7725.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_scc8660.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_scc8660.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_scc8660_flexio.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_scc8660_flexio.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_tft180.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_tft180.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_tsl1401.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_tsl1401.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_type.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_type.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_virtual_oscilloscope.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_virtual_oscilloscope.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_wifi_uart.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_wifi_uart.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_wireless_uart.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_wireless_uart.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_config.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_config.lib"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_dl1a.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_dl1a.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_dl1b.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_dl1b.h"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_wifi_spi.c"
+          },
+          {
+            "path": "../../libraries/zf_device/zf_device_wifi_spi.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "zf_driver",
+        "files": [
+          {
+            "path": "../../libraries/zf_driver/zf_driver_adc.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_adc.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_csi.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_csi.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_delay.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_delay.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_encoder.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_encoder.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_exti.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_exti.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_flash.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_flash.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_flexio_csi.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_flexio_csi.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_gpio.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_gpio.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_iic.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_iic.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_pit.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_pit.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_pwm.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_pwm.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_romapi.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_romapi.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_sdio.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_sdio.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_soft_iic.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_soft_iic.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_soft_spi.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_soft_spi.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_spi.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_spi.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_timer.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_timer.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_uart.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_uart.h"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_usb_cdc.c"
+          },
+          {
+            "path": "../../libraries/zf_driver/zf_driver_usb_cdc.h"
+          }
+        ],
+        "folders": []
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "b3eae5a43c9a3aefb742cdb34fc77559"
+  },
+  "targets": {
+    "nor_sdram_zf_dtcm": {
+      "excludeList": [],
+      "toolchain": "AC6",
+      "compileConfig": {
+        "cpuType": "Cortex-M7",
+        "floatingPointHardware": "double",
+        "scatterFilePath": "scf/MIMXRT1064xxxxx_flexspi_nor.scf",
+        "useCustomScatterFile": true,
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20200000",
+                "size": "0xc0000"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x20000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x20000"
+              },
+              "isChecked": false,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x70000000",
+                "size": "0x400000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "JLink",
+      "uploadConfig": {
+        "bin": "",
+        "baseAddr": "",
+        "cpuInfo": {
+          "vendor": "null",
+          "cpuName": "null"
+        },
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {},
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "../user/inc",
+          "../code",
+          "../../libraries/sdk/startup/mdk",
+          "../../libraries/sdk/deceive",
+          "../../libraries/sdk/drives",
+          "../../libraries/sdk/xip",
+          "../../libraries/sdk/utilities",
+          "../../libraries/sdk/utilities/debug_console",
+          "../../libraries/sdk/utilities/str",
+          "../../libraries/sdk/cmsis_drivers",
+          "../../libraries/sdk/CMSIS/Include",
+          "../../libraries/sdk/CMSIS/Driver/Include",
+          "../../libraries/sdk/components/lists",
+          "../../libraries/sdk/components/osa",
+          "../../libraries/sdk/components/serial_manager",
+          "../../libraries/sdk/components/uart",
+          "../../libraries/sdk/board",
+          "../../libraries/components/fatfs/source",
+          "../../libraries/components/fatfs/source/fsl_sd_disk",
+          "../../libraries/components/sdmmc",
+          "../../libraries/components/sdmmc/common",
+          "../../libraries/components/sdmmc/host/usdhc",
+          "../../libraries/components/sdmmc/osa",
+          "../../libraries/components/sdmmc/sd",
+          "../../libraries/components/usb/device",
+          "../../libraries/components/usb/include",
+          "../../libraries/components/usb/phy",
+          "../../libraries/components/usb/usb_cdc_adapter",
+          "../../libraries/zf_common",
+          "../../libraries/zf_driver",
+          "../../libraries/zf_device",
+          "../../libraries/zf_components",
+          ".cmsis/include",
+          "RTE/_nor_sdram_zf_dtcm",
+          ".eide/deps"
+        ],
+        "libList": [],
+        "sourceDirList": [],
+        "defineList": [
+          "CPU_MIMXRT1064DVL6A",
+          "SKIP_SYSCLK_INIT",
+          "XIP_EXTERNAL_FLASH=1",
+          "XIP_BOOT_HEADER_DCD_ENABLE",
+          "XIP_BOOT_HEADER_ENABLE",
+          "PRINTF_FLOAT_ENABLE=1",
+          "SCANF_FLOAT_ENABLE=1",
+          "PRINTF_ADVANCED_ENABLE=1",
+          "SCANF_ADVANCED_ENABLE=1",
+          "FSL_DRIVER_TRANSFER_DOUBLE_WEAK_IRQ=0",
+          "USB_STACK_BM",
+          "DEBUG",
+          "MCUXPRESSO_SDK",
+          "SD_ENABLED"
+        ]
+      }
+    }
+  },
+  "version": "3.3"
+}

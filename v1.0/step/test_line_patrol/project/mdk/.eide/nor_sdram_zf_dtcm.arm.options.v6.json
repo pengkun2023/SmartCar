@@ -1,0 +1,38 @@
+{
+    "version": 3,
+    "beforeBuildTasks": [],
+    "afterBuildTasks": [
+        {
+            "name": "fromelf.exe --bincombined  --output  \"$L@L.bin\"  \"#L\"",
+            "command": "cd .\\. && fromelf.exe --bincombined  --output  \"${OutDir}\\${ProjectName}.bin\"  \"${ExecutableName}.axf\"",
+            "disable": true,
+            "abortAfterFailed": true
+        }
+    ],
+    "global": {
+        "use-microLIB": true,
+        "output-debug-info": "enable"
+    },
+    "c/cpp-compiler": {
+        "optimization": "level-0",
+        "language-c": "c99",
+        "language-cpp": "c++11",
+        "link-time-optimization": false,
+        "one-elf-section-per-function": true,
+        "plain-char-is-signed": true,
+        "short-enums#wchar": true,
+        "warnings": "ac5-like-warnings",
+        "C_FLAGS": "-fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb -Wno-invalid-source-encoding",
+        "CXX_FLAGS": "-fno-common  -fdata-sections  -ffreestanding  -fno-builtin  -mthumb -Wno-invalid-source-encoding"
+    },
+    "asm-compiler": {
+        "$use": "asm-auto"
+    },
+    "linker": {
+        "output-format": "elf",
+        "misc-controls": "--remove --entry=Reset_Handler",
+        "xo-base": "",
+        "ro-base": "0x00000000",
+        "rw-base": "0x20000000"
+    }
+}
