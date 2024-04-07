@@ -2,8 +2,8 @@
 
 #define DIR_REAR_R 		C9
 #define DIR_REAR_L		C7
-#define DIR_FRONT_R		D2
-#define DIR_FRONT_L		C10
+#define DIR_FRONT_R		C10
+#define DIR_FRONT_L		D2
 
 #define PWM_MAX			2000
 #define MAX_INTEGRAL	100

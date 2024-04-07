@@ -106,4 +106,5 @@
   ..\..\libraries\sdk\board\clock_config.h ..\code\encoder.h \
   ..\..\libraries\sdk\drives\fsl_qtmr.h ..\code\motor.h \
   D:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h ..\code\my_pwm.h \
-  ..\code\image.h ..\code\display.h ..\code\botton.h ..\user\inc\isr.h
+  ..\code\image.h ..\code\display.h ..\code\botton.h ..\code\init.h \
+  ..\user\inc\isr.h

@@ -1,6 +1,7 @@
 #include "botton.h"
 
-
+#define SWITCH1			C27
+#define SWITCH2			C26
 BOTTON_ENUM DisplayShow;
 
 /***********************跳转****************************
@@ -33,7 +34,7 @@ void Key_Set(void)
 				image_value += 5;
 				break;
 			case show_car_speed:
-				speed_begin += 1;
+				speed_begin += 5;
 				break;
 			case show_car_run_OR_stop:
 				
@@ -52,10 +53,10 @@ void Key_Set(void)
 				image_value -= 5;
 				break;
 			case show_car_speed:
-				speed_begin -= 1;
+				speed_begin -= 5;
 				break;
 			case show_car_run_OR_stop:
-				SpeedMode.stop = true;
+				
 				break;
 			default:
 				
@@ -74,7 +75,7 @@ void Key_Set(void)
 				
 				break;
 			case show_car_run_OR_stop:
-				SpeedMode.stop = false;
+				
 				break;
 			default:
 				
@@ -88,5 +89,19 @@ void Key_Set(void)
 		clear_flag = true;
 		key_clear_state(KEY_4);
 	}
+	
+	if(!gpio_get_level(SWITCH2))		SpeedMode.stop = true;
+	else								SpeedMode.stop = false;
+
+}
+
+/***********************按键初始化****************************/
+//void Botton_Init(void)
+/************************************************************/
+void Botton_Init(void)
+{
+	key_init(10);
+	gpio_init(SWITCH1, GPI, GPIO_HIGH, GPI_PULL_UP);
+	gpio_init(SWITCH2, GPI, GPIO_HIGH, GPI_PULL_UP);
 }
 

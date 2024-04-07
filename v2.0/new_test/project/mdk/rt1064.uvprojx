@@ -479,6 +479,16 @@
               <FileType>5</FileType>
               <FilePath>..\code\display.h</FilePath>
             </File>
+            <File>
+              <FileName>init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\code\init.c</FilePath>
+            </File>
+            <File>
+              <FileName>init.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\code\init.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

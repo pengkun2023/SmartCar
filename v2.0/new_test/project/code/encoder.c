@@ -4,10 +4,10 @@
 //-------------------------//
 //补充：  需要进行滤波！！！
 //------------------------//
-#define	PASSAGE_R_L		QTIMER1_ENCODER2
-#define	PASSAGE_R_R		QTIMER1_ENCODER1
-#define	PASSAGE_F_L		QTIMER2_ENCODER1
-#define	PASSAGE_F_R		QTIMER2_ENCODER2
+#define	PASSAGE_R_L		QTIMER1_ENCODER1
+#define	PASSAGE_R_R		QTIMER1_ENCODER2
+#define	PASSAGE_F_L		QTIMER2_ENCODER2
+#define	PASSAGE_F_R		QTIMER2_ENCODER1
 
 int encoder_rear_L = 0, encoder_rear_R = 0, encoder_front_L = 0, encoder_front_R = 0;
 

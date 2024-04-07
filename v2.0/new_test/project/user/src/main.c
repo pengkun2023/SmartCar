@@ -57,17 +57,7 @@ int main (void)
     clock_init(SYSTEM_CLOCK_600M);                                              // 不可删除
     debug_init();                                                               // 调试端口初始化
     system_delay_ms(300);
-
-	Encoder_Init();
-	Motor_Init();
-	pit_ms_init(PIT_CH0, 5);
-	wireless_uart_init();
-    seekfree_assistant_interface_init(SEEKFREE_ASSISTANT_WIRELESS_UART);
-	ips200_init(IPS200_TYPE_SPI);
-    mt9v03x_init();
-	
-	key_init(10);
-	seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_binaryzation[0], MT9V03X_W, MT9V03X_H);
+	Init();
 	system_delay_ms(1000);
 	
     // 此处编写用户代码 例如外设初始化代码等

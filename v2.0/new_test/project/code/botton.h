@@ -17,5 +17,5 @@ typedef enum BOTTON_ENUM
 extern BOTTON_ENUM DisplayShow;		//×´Ì¬»ú³õÊ¼»¯
 
 void Key_Set(void);
-
+void Botton_Init(void);
 #endif
