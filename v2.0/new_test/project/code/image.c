@@ -2,6 +2,9 @@
 #include "image.h"
 uint8 image_binaryzation[MT9V03X_H][MT9V03X_W];
 uint8 midline[MT9V03X_H], leftline[MT9V03X_H], rightline[MT9V03X_H], temp_data[MT9V03X_H];
+uint8 Right_Lost_Line[MT9V03X_H], Left_Lost_Line[MT9V03X_H];
+uint8 leftLost_flag, rightLost_flag, bothLost_flag, leftStart_flag, rightStart_flag;
+
 uint8 image_copy[MT9V03X_H][MT9V03X_W];
 uint8 threshold;
 uint8 midLine_value;
@@ -44,56 +47,10 @@ void Image_Copy(uint8 image_copy[MT9V03X_H][MT9V03X_W])
 	}
 }
 
-
 //==============大津法获取阈值===================//
 //GetOSTU(uint tmp_image[MT9V03X_H][MT9V03X_W]);
 //tmp_image[MT9V03X_H][MT9V03X_W] ==> image灰度图像
 //==============================================//
-//uint8 GetOSTU(uint8 tmp_image[MT9V03X_H][MT9V03X_W])
-//{
-//	unsigned int i, j;
-//	unsigned long amount = 0;
-//	unsigned long pixel_back = 0;
-//	unsigned long pixel_fore = 0;
-//	unsigned long gray_fore = 0;
-//	unsigned long gray_back = 0;
-//	unsigned long gray_value;
-//	uint8 max_value, min_value, threshold;
-//	float sigma, omega, sigma_b, omega_fore, omega_back, percentage_fore, percentage_back;
-//	uint8 histogram[256];
-
-//	for (i = 0; i < MT9V03X_IMAGE_SIZE; i++)	histogram[i] = 0;	//初始化灰度直方图
-//	for (i = 0; i < MT9V03X_H; i ++){
-//		//统计灰度级中的每个像素在整幅图像中的个数
-//		for (j = 0; j < MT9V03X_W; j ++)	histogram[tmp_image[i][j]] ++;
-//	}
-//	for (min_value = 0; min_value <= 255 && !histogram[min_value]; min_value ++);	//获取最小灰度值
-//	for (max_value = 255; max_value > min_value && !histogram[min_value]; max_value --);	// 获取最大灰度值
-
-//	if (max_value == min_value)		return max_value;		//图像中只有一个颜色
-//	if (min_value + 1 == max_value)	return min_value;		//图像中有两个颜色
-
-//	for (i = min_value; i <= max_value; i ++)	amount += histogram[i];		//像素总数
-//	gray_value = 0;
-//	for (i = min_value; i <= max_value; i ++)	gray_value += histogram[i] * i;		//灰度值总数
-//	sigma_b = -1;
-//	for (i = min_value; i < max_value; i ++){
-//		pixel_fore += histogram[i];			//前景像素
-//		pixel_back = amount - pixel_back;	//背景像素
-//		omega_fore = (float) pixel_fore / amount;	//前景像素百分比
-//		omega_back = (float) pixel_back / amount;	 //背景像素百分比
-//		gray_fore += histogram[i] * i;		//前景的灰度值
-//		gray_back = gray_fore - gray_back; 	//背景的灰度值
-//		percentage_fore = (float) gray_fore / pixel_fore;	//前景灰度百分比
-//		percentage_back = (float) gray_back / pixel_back;	//背景灰度百分比
-//		sigma = omega_fore * omega_back * pow((percentage_fore - percentage_back), 2);	//类间方差
-//		if (sigma > sigma_b){
-//			sigma_b = sigma;
-//			threshold = i;
-//		}
-//	}
-//	return threshold;
-//}
 short GetOSTU (unsigned char tmImage[MT9V03X_H][MT9V03X_W])
 {
     signed short i, j;
@@ -198,18 +155,26 @@ void Sweep_Line(uint8 binaryzation_image[MT9V03X_H][MT9V03X_W])
 	uint8 left_point = 1;
 	uint8 right_point = MT9V03X_W - 1;
 	uint8 mid_point = MT9V03X_W / 2;
+	
+	leftLost_flag = 0;
+	rightLost_flag = 0;
+	bothLost_flag = 0;
+	leftStart_flag = 0;
+	rightStart_flag = 0;
 
 	for (uint8 i = MT9V03X_H - 1; i > 0; i --){
 		if (binaryzation_image[i][mid_point] == 255){
 			for (uint8 j = mid_point; j > 0; j --){
 				if (binaryzation_image[i][j] == 0 && binaryzation_image[i][j + 1] == 255){
 					left_point = j;
+					Left_Lost_Line[i] = 0;	//丢线为1，反之为0
 					break;
 				}
 			}
 			for (uint8 j = mid_point; j < MT9V03X_W; j ++){
 				if (binaryzation_image[i][j] == 0 && binaryzation_image[i][j - 1] == 255){
 					right_point = j;
+					Right_Lost_Line[i] = 0;
 					break;
 				}
 			}
@@ -218,12 +183,14 @@ void Sweep_Line(uint8 binaryzation_image[MT9V03X_H][MT9V03X_W])
 			for (uint8 j = mid_point / 2; j > 0; j --){
 				if (binaryzation_image[i][j] == 0 && binaryzation_image[i][j + 1] == 255){
 					left_point = j;
+					Left_Lost_Line[i] = 0;
 					break;
 				}
 			}
 			for (uint8 j = mid_point / 2; j < MT9V03X_W - 1; j ++){
 				if (binaryzation_image[i][j] == 0 && binaryzation_image[i][j - 1] == 255){
 					right_point = j;
+					Right_Lost_Line[i] = 0;
 					break;
 				}
 			}
@@ -232,12 +199,14 @@ void Sweep_Line(uint8 binaryzation_image[MT9V03X_H][MT9V03X_W])
 			for (uint8 j = mid_point / 2 * 3; j > 0; j --){
 				if (binaryzation_image[i][j] == 0 && binaryzation_image[i][j + 1] == 255){
 					left_point = j;
+					Left_Lost_Line[i] = 0;
 					break;
 				}
 			}
 			for (uint8 j = mid_point / 2 * 3; j < MT9V03X_W - 1; j ++){
 				if (binaryzation_image[i][j] == 0 && binaryzation_image[i][j - 1] == 255){
 					right_point = j;
+					Right_Lost_Line[i] = 0;
 					break;
 				}
 			}
@@ -245,14 +214,23 @@ void Sweep_Line(uint8 binaryzation_image[MT9V03X_H][MT9V03X_W])
 		else{
 			left_point = 1;
 			right_point = MT9V03X_W - 1;
+			Left_Lost_Line[i] = 1;
+			Right_Lost_Line[i] = 1;
 		}
 		leftline[i] = left_point;
 		rightline[i] = right_point;
 		midline[i] = (left_point + right_point) / 2;
 //		ips200_show_float(0, 200, midline[i], 3, 2);
 	}
+	
+//	for (uint8 i = MT9V03X_H - 1; i >= 0; i --){
+//		if (Left_Lost_Line[i] == 1)		leftLost_flag ++;//单边丢线
+//		if (Right_Lost_Line[i] == 1)	rightLost_flag ++;
+//		if (Left_Lost_Line[i] == 1 && Right_Lost_Line[i] == 0)		bothLost_flag ++;
+//		if (leftStart_flag == 0 && Left_Lost_Line[i] == 1)	leftStart_flag = i;
+//		if (rightStart_flag == 0 && Right_Lost_Line[i] == 1)	rightStart_flag = i;
+//	}
 }
-
 
 
 //===============画点===============//
@@ -345,6 +323,52 @@ void Deviation_Deal(void)
 	
 }
 
+
+uint8 Abs_uint8(uint8 value)
+{
+	if (value < 0)	return -value;
+	else			return value;
+}
+
+//--------------------------------------------------//
+//左下角点检测
+//void Fine_Point_RL(void) 
+//
+//---------------------------------------------------//
+
+
+uint8 Fine_Point_RL(uint8 start_line, uint8 end_line) 
+{
+	uint8 RL_line_point = 0;
+	if (leftLost_flag >= (0.9 * MT9V03X_H))		return 	RL_line_point;
+	if (start_line >= MT9V03X_H - 6)	start_line = MT9V03X_H - 6;
+	if (end_line <= 5)					end_line = 5;
+	for (uint8 i = start_line; i > end_line; i --){
+		if (RL_line_point == 0 &&
+			Abs_uint8(leftline[i] - leftline[i + 1]) <= 5 &&
+			Abs_uint8(leftline[i + 1] - leftline[i + 2]) <= 5 &&
+			Abs_uint8(leftline[i + 2] - leftline[i + 3]) <= 5 &&
+			Abs_uint8(leftline[i] - leftline[i - 2]) <= 5 &&
+			Abs_uint8(leftline[i] - leftline[i - 3]) <= 10 &&
+			Abs_uint8(leftline[i] - leftline[i - 4]) <= 10){
+				
+				RL_line_point = i;
+				break;
+			}		
+	}
+	return RL_line_point;
+}
+
+//-----------------------判断十字---------------------//
+// 	void Discover_Crossroad(void) 
+//
+//---------------------------------------------------//
+void Discover_Crossroad(void) 
+{
+	
+}
+
+
 /***************************************************
 //void Protect(void)
 //当车冲出赛道的时候，停车
@@ -355,7 +379,7 @@ void Protect(void)
 	for (uint8 i = MT9V03X_W - 1; i > 0; i --){
 		if (image_binaryzation[MT9V03X_H - 1][i] == RGB565_BLACK)	black_count ++;
 	}
-	if (black_count >= 170)		Car_Straight(0);
+	if (black_count >= 170)		Car_Straight(0);	//直行速度 ==> 0
 }
 
 
@@ -366,7 +390,8 @@ void Protect(void)
 
 void Image_Deal(void)
 {	
-	//threshold = GetOSTU(image_binaryzation);
+	//threshold = GetOSTU(mt9v03x_image);
+	//image_value = threshold;
 	Image_Binaryzation(image_value);
 	Image_Erosion(image_binaryzation);
 	Sweep_Line(image_binaryzation);

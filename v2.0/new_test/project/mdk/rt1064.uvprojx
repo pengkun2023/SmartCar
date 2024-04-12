@@ -489,6 +489,16 @@
               <FileType>5</FileType>
               <FilePath>..\code\init.h</FilePath>
             </File>
+            <File>
+              <FileName>sevor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\code\sevor.c</FilePath>
+            </File>
+            <File>
+              <FileName>sevor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\code\sevor.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -9,6 +9,7 @@
 ".\objects\botton.o"
 ".\objects\display.o"
 ".\objects\init.o"
+".\objects\sevor.o"
 ".\objects\zf_common_clock.o"
 ".\objects\zf_common_debug.o"
 ".\objects\zf_common_fifo.o"

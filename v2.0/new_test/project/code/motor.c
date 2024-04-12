@@ -5,7 +5,7 @@
 #define DIR_FRONT_R		C10
 #define DIR_FRONT_L		D2
 
-#define PWM_MAX			2000
+#define PWM_MAX			5000
 #define MAX_INTEGRAL	100
 
 #define PWM_REAR_R		PWM2_MODULE1_CHA_C8

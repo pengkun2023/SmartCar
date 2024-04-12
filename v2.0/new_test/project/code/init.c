@@ -12,7 +12,7 @@
 /************************************************************/
 
 void Init(void)
-{
+{ 
 	Encoder_Init();
 	Motor_Init();
 	pit_ms_init(PIT_CH0, 5);
@@ -22,5 +22,6 @@ void Init(void)
 	wireless_uart_init();
 	//wifi_spi_init(WIFI_SSID_TEST, WIFI_PASSWORD_TEST);
 	Botton_Init();
+	Sevor_Init();
 	seekfree_assistant_camera_information_config(SEEKFREE_ASSISTANT_MT9V03X, image_binaryzation[0], MT9V03X_W, MT9V03X_H);
 }
